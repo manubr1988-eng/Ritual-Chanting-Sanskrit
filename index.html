@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ಶ್ರೀಮದ್ಭಗವದ್ಗೀತಾ - ದ್ವಾದಶೋಧ್ಯಾಯಃ (ಭಕ್ತಿ ಯೋಗಃ)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Kannada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada:ital@0;1&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        kannada: ['Noto Sans Kannada', 'sans-serif'],
+                        serifKannada: ['Tiro Kannada', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans Kannada', sans-serif;
+            background-color: #fdfbf7;
+            color: #2c2c2c;
+        }
+
+        .shloka-text {
+            font-family: 'Tiro Kannada', serif;
+            line-height: 1.9;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+            .verse-card {
+                break-inside: avoid;
+                border: 1px solid #d1d5db !important;
+                box-shadow: none !important;
+                background-color: #ffffff !important;
+                margin-bottom: 1.5rem !important;
+                padding: 1rem !important;
+            }
+            .header-bg {
+                background: none !important;
+                color: #000000 !important;
+                border-bottom: 2px solid #000000 !important;
+                padding: 1rem 0 !important;
+            }
+            .header-title {
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-amber-200 selection:text-amber-900">
+
+    <!-- Top Navigation / Bar (No Print) -->
+    <header class="no-print bg-amber-900 text-amber-50 shadow-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🕉️</span>
+                <span class="font-bold text-lg md:text-xl font-serifKannada">ಶ್ರೀಮದ್ಭಗವದ್ಗೀತಾ     ( SCHOOLS RESOURCE CENTER)</span>
+            </div>
+            <button onclick="window.print()" class="bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-white font-medium px-4 py-2 rounded-lg shadow transition flex items-center gap-2 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                <span>ಮುದ್ರಿಸಿ (Print)</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <!-- Header Banner -->
+        <div class="header-bg bg-gradient-to-r from-amber-800 via-amber-700 to-amber-900 text-white text-center p-6 md:p-10 rounded-2xl shadow-lg mb-8">
+            <h1 class="header-title text-2xl md:text-4xl font-bold font-serifKannada mb-2 tracking-wide text-amber-100">
+                ಶ್ರೀಮದ್ಭಗವದ್ಗೀತಾ
+            </h1>
+            <h2 class="text-xl md:text-3xl font-semibold font-serifKannada text-amber-200 mt-2">
+                ಅಥ ದ್ವಾದಶೋಧ್ಯಾಯಃ - ಭಕ್ತಿ ಯೋಗಃ
+            </h2>
+            <p class="text-amber-100 text-sm md:text-base mt-3 font-light">
+                (ಶ್ಲೋಕ ೧ ರಿಂದ ೧೫)
+            </p>
+        </div>
+
+        <!-- Verses Container -->
+        <div id="verses-container" class="space-y-6">
+            <!-- Verses will be dynamically rendered here via JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="no-print bg-amber-950 text-amber-200 text-center py-6 mt-12 border-t border-amber-800">
+        <p class="text-sm font-serifKannada">|| ಓಂ ತತ್ಸದಿತಿ ಶ್ರೀಮದ್ಭಗವದ್ಗೀತಾಸೂಪನಿಷತ್ಸು ಬ್ರಹ್ಮವಿದ್ಯಾಯಾಂ ಯೋಗಶಾಸ್ತ್ರೇ ಶ್ರೀಕೃಷ್ಣಾರ್ಜುನಸಂವಾದೇ ಭಕ್ತಿಯೋಗೋ ನಾಮ ದ್ವಾದಶೋಧ್ಯಾಯಃ ||</p>
+    </footer>
+
+    <!-- JavaScript Data and Renderer -->
+    <script>
+        const verses = [
+            {
+                number: 1,
+                speaker: "ಅರ್ಜುನ ಉವಾಚ",
+                shloka: "ಏವಂ ಸತತಯುಕ್ತಾ ಯೇ ಭಕ್ತಾಸ್ತ್ವಾಂ ಪರ್ಯುಪಾಸತೇ |\nಯೇ ಚಾಪ್ಯಕ್ಷರಮವ್ಯಕ್ತಂ ತೇಷಾಂ ಕೇ ಯೋಗವಿತ್ತಮಾಃ || ೧ ||",
+                meaning: "ಅರ್ಜುನನು ಕೇಳಿದನು: ನಿರಂತರವಾಗಿ ಭಕ್ತಿಯಿಂದ ನಿನ್ನನ್ನು ಉಪಾಸನೆ ಮಾಡುವ ಭಕ್ತರು ಮತ್ತು ಅವ್ಯಕ್ತವಾದ, ಅಕ್ಷರವಾದ (ನಿರಾಕಾರ) ಬ್ರಹ್ಮವನ್ನು ಉಪಾಸನೆ ಮಾಡುವವರು - ಇವರಿಬ್ಬರಲ್ಲಿ ಯಾರು ಶ್ರೇಷ್ಠ ಯೋಗಿಗಳು?"
+            },
+            {
+                number: 2,
+                speaker: "ಶ್ರೀಭಗವಾನುವಾಚ",
+                shloka: "ಮಯ್ಯಾವೇಶ್ಯ ಮನೋ ಯೇ ಮಾಂ ನಿತ್ಯಯುಕ್ತಾ ಉಪಾಸತೇ |\nಶ್ರದ್ಧಯಾ ಪರಯೋಪೇತಾಸ್ತ್ತೇ ಮೇ ಯುಕ್ತತಮಾ ಮತಾಃ || ೨ ||",
+                meaning: "ಶ್ರೀ ಭಗವಂತನು ಹೇಳಿದನು: ನನ್ನಲ್ಲಿ ಮನಸ್ಸನ್ನಿಟ್ಟು, ಪರಮ ಶ್ರದ್ಧೆಯಿಂದ ನಿರಂತರವೂ ನನ್ನನ್ನು ಉಪಾಸನೆ ಮಾಡುವ ಭಕ್ತರನ್ನು ನಾನು ಶ್ರೇಷ್ಠ ಯೋಗಿಗಳಲ್ಲಿ ಅತ್ಯಂತ ಶ್ರೇಷ್ಠರೆಂದು ಪರಿಗಣಿಸುತ್ತೇನೆ."
+            },
+            {
+                number: 3,
+                speaker: "",
+                shloka: "ಯೇ ತ್ವರ್ಷರಮನಿರ್ದೇಶ್ಯಮವ್ಯಕ್ತಂ ಪರ್ಯುಪಾಸತೇ |\nಸರ್ವತ್ರಗಮಚಿಂತ್ಯಞ್ಚ ಕೂಟಸ್ಥಮಚಲಂಧ್ರುವಮ್ || ೩ ||",
+                meaning: "ಆದರೆ ಯಾರು ನಿರ್ದೇಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲದ್ದು, ಅವ್ಯಕ್ತವಾದದ್ದು, ಸರ್ವವ್ಯಾಪಿ, ಅಚಿಂತ್ಯ, ಕೂಟಸ್ಥ (ವಿಕಾರರಹಿತ), ಅಚಲ ಹಾಗೂ ಶಾಶ್ವತವಾದ ಅಕ್ಷರ ಬ್ರಹ್ಮವನ್ನು ಉಪಾಸನೆ ಮಾಡುತ್ತಾರೋ,"
+            },
+            {
+                number: 4,
+                speaker: "",
+                shloka: "ಸಂನಿಯಮ್ಯೇನ್ದ್ರಿಯಗ್ರಾಮಂ ಸರ್ವತ್ರ ಸಮಬುದ್ಧಯಃ |\nತೇ ಪ್ರಾಪ್ನುವನ್ತಿ ಮಾಮೇವ ಸರ್ವಭೂತಹಿತೇ ರತಾಃ || ೪ ||",
+                meaning: "ಅವರು ತಮ್ಮ ಇಂದ್ರಿಯಗಳನ್ನೆಲ್ಲ ಚೆನ್ನಾಗಿ ನಿಯಂತ್ರಿಸಿ, ಎಲ್ಲ ಪರಿಸ್ಥಿತಿಗಳಲ್ಲಿಯೂ ಸಮಬುದ್ಧಿಯುಳ್ಳವರಾಗಿ ಮತ್ತು ಸಕಲ ಜೀವಿಗಳ ಹಿತದಲ್ಲಿ ನಿರತರಾಗಿ ಕೊನೆಗೆ ನನ್ನನ್ನೇ ತಲುಪುತ್ತಾರೆ."
+            },
+            {
+                number: 5,
+                speaker: "",
+                shloka: "ಕ್ಲೇಶೋऽಧಿಕತರಸ್ತೇಷಾಮವ್ಯಕ್ತಾಸಕ್ತಚೇತಸಾಮ್ |\nಅವ್ಯಕ್ತಾ ಹಿ ಗತಿರ್ದುಃಖಂ ದೇಹವದ್ಭಿರವಾಪ್ಯತೇ || ೫ ||",
+                meaning: "ನಿರಾಕಾರ (ಅವ್ಯಕ್ತ) ಬ್ರಹ್ಮದಲ್ಲಿ ಮನಸ್ಸನ್ನು ತೊಡಗಿಸಿದವರಿಗೆ ಕಷ್ಟಗಳು ಹೆಚ್ಚು. ಏಕೆಂದರೆ ದೇಹಧಾರಣೆ ಮಾಡಿದ ಜೀವಿಗಳಿಗೆ ಅವ್ಯಕ್ತವಾದ ಮಾರ್ಗವನ್ನು ತಲುಪುವುದು ಅತ್ಯಂತ ದುಃಖಕರವಾದದ್ದು."
+            },
+            {
+                number: 6,
+                speaker: "",
+                shloka: "ಯೇ ತು ಸರ್ವಾಣಿ ಕರ್ಮಾಣಿ ಮಯಿ ಸಂನ್ಯಸ್ಯ ಮತ್ಪರಾಃ |\nಅನನ್ಯೇನೈವ ಯೋಗೇನ ಮಾಂ ಧ್ಯಾಯನ್ತ ಉಪಾಸತೇ || ೬ ||",
+                meaning: "ಆದರೆ ಯಾರು ತಮ್ಮ ಎಲ್ಲಾ ಕರ್ಮಗಳನ್ನು ನನಗೆ ಅರ್ಪಿಸಿ, ನನ್ನನ್ನೇ ಪರಮ ಗತಿಯೆಂದು ನಂಬಿ, ಅನನ್ಯವಾದ ಭಕ್ತಿಯೋಗದಿಂದ ನನ್ನನ್ನೇ ಧ್ಯಾನಿಸುತ್ತಾ ಉಪಾಸನೆ ಮಾಡುತ್ತಾರೋ,"
+            },
+            {
+                number: 7,
+                speaker: "",
+                shloka: "ತೇಷಾಮಹಂ ಸಮುದ್ಧರ್ತಾ ಮೃತ್ಯುಸಂಸಾರಸಾಗರಾತ್ |\nಭವಾಮಿ ನಚಿರಾತ್ಪಾರ್ಥ ಮಯ್ಯಾಪೇಶಿತಚೇತಸಾಮ್ || ೭ ||",
+                meaning: "ಎಲೈ ಪಾರ್ಥ, ನನ್ನಲ್ಲಿ ಮನಸ್ಸನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಪಿಸಿದ ಅಂತಹ ಭಕ್ತರನ್ನು ನಾನು ಮೃತ್ಯುರೂಪದ ಸಂಸಾರ ಸಾಗರದಿಂದ ಶೀಘ್ರವಾಗಿಯೇ ಉದ್ಧರಿಸುತ್ತೇನೆ."
+            },
+            {
+                number: 8,
+                speaker: "",
+                shloka: "ಮಯ್ಯೇವ ಮನ ಆಧತ್ಸ್ವ ಮಯಿ ಬುದ್ಧಿಂ ನಿವೇಶಯ |\nನಿವಸಿಷ್ಯಸಿ ಮಯ್ಯೇವ ಅತ ಊರ್ಧ್ವಂ ನ ಸಂಶಯಃ || ೮ ||",
+                meaning: "ಆದ್ದರಿಂದ ನಿನ್ನ ಮನಸ್ಸನ್ನು ನನ್ನಲ್ಲಿಯೇ ಇಡು, ನಿನ್ನ ಬುದ್ಧಿಯನ್ನು ನನ್ನಲ್ಲಿಯೇ ಸ್ಥಿರಗೊಳಿಸು. ತರುವಾಯ ನೀನು ನನ್ನಲ್ಲಿಯೇ ನಿವಾಸ ಮಾಡುತ್ತೀಯೆ, ಇದರಲ್ಲಿ ಸಂಶಯವಿಲ್ಲ."
+            },
+            {
+                number: 9,
+                speaker: "",
+                shloka: "ಅಥ ಚಿತ್ತಂ ಸಮಾಧಾತುಂ ನ ಶಕ್ನೋಷಿ ಮಯಿ ಸ್ಥಿರಮ್ |\nಅಭ್ಯಾಸಯೋಗೇನ ತತೋ ಮಾಮಿಚ್ಛಾಪ್ತುಂ ಧನಞ್ಜಯ || ೯ ||",
+                meaning: "ಎಲೈ ಧನಂಜಯ, ಒಂದು ವೇಳೆ ನಿನ್ನ ಮನಸ್ಸನ್ನು ನನ್ನಲ್ಲಿ ಸ್ಥಿರವಾಗಿಡಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, ಅಭ್ಯಾಸಯೋಗದ ಮೂಲಕ ನನ್ನನ್ನು ತಲುಪಲು ಪ್ರಯತ್ನಿಸು."
+            },
+            {
+                number: 10,
+                speaker: "",
+                shloka: "ಅಭ್ಯಾಸೇऽಪ್ಯಸಮರ್ಥೋऽಸಿ ಮತ್ಕರ್ಮಪರಮೋ ಭವ |\nಮದರ್ಥಮಪಿ ಕರ್ಮಾಣಿ ಕುರ್ವನ್ಸಿದ್ಧಿಮವಾಪ್ಸ್ಯಸಿ || ೧೦ ||",
+                meaning: "ಒಂದು ವೇಳೆ ಅಭ್ಯಾಸ ಮಾಡಲೂ ನೀನು ಅಸಮರ್ಥನಾದರೆ, ನನಗೋಸ್ಕರ ಕರ್ಮಗಳನ್ನು ಮಾಡುವುದನ್ನೇ ಪರಮ ಧರ್ಮವೆಂದು ಸ್ವೀಕರಿಸು. ನನಗಾಗಿ ಕರ್ಮಗಳನ್ನು ಮಾಡುತ್ತಾ ನೀನು ಸಿದ್ಧಿಯನ್ನು ಪಡೆಯುವೆ."
+            },
+            {
+                number: 11,
+                speaker: "",
+                shloka: "ಅಥೈತದಪ್ಯಶಕ್ತೋऽಸಿ ಕರ್ತುಂ ಮದ್ಯೋಗಮಾಶ್ರಿತಃ |\nಸರ್ವಕರ್ಮಫಲತ್ಯಾಗಂ ತತಃ ಕುರು ಯತಾತ್ಮವಾನ್ || ೧೧ ||",
+                meaning: "ಇದನ್ನೂ ಮಾಡಲು ನಿನಗೆ ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, ನನ್ನ ಯೋಗವನ್ನು ಆಶ್ರಯಿಸಿ, ಆತ್ಮಸಂಯಮನವುಳ್ಳವನಾಗಿ ಎಲ್ಲ ಕರ್ಮಗಳ ಫಲಗಳನ್ನು ತ್ಯಾಗ ಮಾಡು."
+            },
+            {
+                number: 12,
+                speaker: "",
+                shloka: "ಶ್ರೇಯೋ ಹಿ ಜ್ಞಾನಮಭ್ಯಾಸಾಜ್ಜಞಾನಾದ್ಧ್ಯಾನ್ನಂ ವಿಶಿಷ್ಯತೇ |\nಧ್ಯಾನಾತ್ಕರ್ಮಫಲತ್ಯಾಗಸ್ತ್ಯಾಗಾಚ್ಛಾನ್ತಿರನನ್ತರಮ್ || ೧೨ ||",
+                meaning: "ಏಕೆಂದರೆ ತಿಳುವಳಿಕೆಯಿಲ್ಲದ ಅಭ್ಯಾಸಕ್ಕಿಂತ ಜ್ಞಾನವು ಶ್ರೇಷ್ಠ. ಜ್ಞಾನಕ್ಕಿಂತ ಧ್ಯಾನವು ಶ್ರೇಷ್ಠ. ಧ್ಯಾನಕ್ಕಿಂತ ಕರ್ಮಫಲತ್ಯಾಗವು ಶ್ರೇಷ್ಠವಾದದ್ದು. ಫಲತ್ಯಾಗದಿಂದ ತಕ್ಷಣವೇ ಪರಮ ಶಾಂತಿ ದೊರೆಯುತ್ತದೆ."
+            },
+            {
+                number: 13,
+                speaker: "",
+                shloka: "ಅದ್ವೇಷ್ಟಾ ಸರ್ವಭೂತಾನಾಂ ಮೈತ್ರಃ ಕರುಣ ಏವ ಚ |\nನಿರ್ಮಮೋ ನಿರಹಙ್ಕಾರಃ ಸಮದುಃಖಸುಖಃ ಕ್ಷಮೀ || ೧೩ ||",
+                meaning: "ಯಾವನೂ ಯಾವ ಜೀವಿಯನ್ನೂ ದ್ವೇಷಿಸುವುದಿಲ್ಲವೋ, ಎಲ್ಲರಲ್ಲಿಯೂ ಮೈತ್ರಿ ಮತ್ತು ಕರುಣೆಯನ್ನು ಹೊಂದಿರುತ್ತಾನೋ, ಮಮಕಾರ ಮತ್ತು ಅಹಂಕಾರಗಳಿಲ್ಲದವನಾಗಿರುತ್ತಾನೋ, ಸುಖ-ದುಃಖಗಳಲ್ಲಿ ಸಮನಾಗಿರುತ್ತಾನೋ ಮತ್ತು ಕ್ಷಮಾಶೀಲನಾಗಿರುತ್ತಾನೋ,"
+            },
+            {
+                number: 14,
+                speaker: "",
+                shloka: "ಸನ್ತುಷ್ಟಃ ಸತತಂ ಯೋಗೀ ಯತಾತ್ಮಾ ದೃಢನಿಶ್ಚಯಃ |\nಮಯ್ಯರ್ಪಿತಮನೋಬುದ್ಧಿರ್ಯೋ ಮದ್ಭಕ್ತಃ ಸ ಮೇ ಪ್ರಿಯಃ || ೧೪ ||",
+                meaning: "ಯಾರು ನಿರಂತರವೂ ಸಂತುಷ್ಟನಾಗಿರುತ್ತಾನೋ, ಯೋಗಿಯಾಗಿದ್ದುಕೊಂಡು ಆತ್ಮಸಂಯಮ ಮತ್ತು ದೃಢನಿಶ್ಚಯವುಳ್ಳವನಾಗಿರುತ್ತಾನೋ, ತನ್ನ ಮನಸ್ಸು ಹಾಗೂ ಬುದ್ಧಿಯನ್ನು ನನಗೆ ಅರ್ಪಿಸಿರುತ್ತಾನೋ, ಅಂತಹ ಭಕ್ತನು ನನಗೆ ಪ್ರಿಯನು."
+            },
+            {
+                number: 15,
+                speaker: "",
+                shloka: "ಯಸ್ಮಾನ್ನೋದ್ವಿಜತೇ ಲೋಕೋ ಲೋಕಾನ್ನೋದ್ವಿಜತೇ ಚ ಯಃ |\nಹರ್ಷಾಮರ್ಷಭಯೋದ್ವೇಗೈರ್ಮುಕ್ತೋ ಯಃ ಸ ಚ ಮೇ ಪ್ರಿಯಃ || ೧೫ ||",
+                meaning: "ಯಾರಿಂದ ಜಗತ್ತಿಗೆ ಉದ್ವೇಗ ಉಂಟಾಗುವುದಿಲ್ಲವೋ ಮತ್ತು ಯಾರು ಜಗತ್ತಿನಿಂದ ಉದ್ವೇಗಗೊಳ್ಳುವುದಿಲ್ಲವೋ, ಯಾರು ಹರ್ಷ, ಅಸೂಯೆ, ಭಯ ಹಾಗೂ ಉದ್ವೇಗಗಳಿಂದ ಮುಕ್ತನಾಗಿರುತ್ತಾನೋ, ಅವನು ನನಗೆ ಪ್ರಿಯನು."
+            }
+        ];
+
+        function renderVerses() {
+            const container = document.getElementById('verses-container');
+            
+            verses.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'verse-card bg-white rounded-xl shadow-md border border-amber-100 p-6 md:p-8 transition duration-200 hover:shadow-lg';
+                
+                let speakerHTML = v.speaker ? `<div class="text-amber-800 font-bold font-serifKannada text-lg mb-3 border-b border-amber-100 pb-1 inline-block">॥ ${v.speaker} ॥</div>` : '';
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-amber-100 text-amber-900 font-semibold text-sm px-3 py-1 rounded-full">
+                            ಶ್ಲೋಕ ${v.number}
+                        </span>
+                    </div>
+                    ${speakerHTML}
+                    <div class="shloka-text text-xl md:text-2xl text-amber-950 whitespace-pre-line font-serifKannada font-medium mb-4 leading-relaxed">
+                        ${v.shloka}
+                    </div>
+                    <div class="bg-amber-50/60 p-4 rounded-lg border-l-4 border-amber-600 mt-4">
+                        <p class="text-xs uppercase font-semibold text-amber-800 mb-1 tracking-wider">ಭಾವಾರ್ಥ (ಅರ್ಥ):</p>
+                        <p class="text-gray-800 text-base md:text-lg leading-relaxed font-kannada">
+                            ${v.meaning}
+                        </p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        window.onload = renderVerses;
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <!-- ಇದು ಮೊಬೈಲ್‌ನಲ್ಲಿಯೂ ಡೆಸ್ಕ್‌ಟಾಪ್ ವ್ಯೂ ಬರುವುದನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ -->
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>ನಿಮ್ಮ ಪೇಜ್ ಶೀರ್ಷಿಕೆ</title>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@media print{
+  .no-print{
+    display:none !important;
+  }
+}
+</style>
+
+<div class="no-print" style="text-align:center;margin:15px 0;">
+  <a href="https://bilingualmediumschools.blogspot.com/2026/04/home-page.html"
+     target="_blank"
+     style="display:inline-block;
+            background:#1565c0;
+            color:#fff;
+            text-decoration:none;
+            padding:10px 18px;
+            border-radius:8px;
+            font-weight:bold;
+            font-size:16px;">
+<br> ರಚನೆ: ಮನೋಹರ್ ಆರ್‌ ಕೆ.ಜಿ.ಎಫ್<br>
+    🌐 School Resource Centre – Click Here to Visit
+  </a>
+</div>
